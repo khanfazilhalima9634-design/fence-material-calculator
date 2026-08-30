@@ -1,1 +1,154 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fence Material Calculator</title><meta name="description" content="Free Fence Material Calculator"><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="css/style.css"></head><body><header><h1>Fence Material Calculator</h1><p>Calculate posts, rails, pickets, concrete bags and cost.</p></header><main class="container"><section class="calculator"><div class="grid"><div class="input-group"><label>Fence Length (ft)</label><input id="length" type="number" value="100"></div><div class="input-group"><label>Fence Height</label><select id="height"><option>4</option><option selected>6</option><option>8</option></select></div><div class="input-group"><label>Post Spacing (ft)</label><input id="spacing" type="number" value="8"></div><div class="input-group"><label>Rails</label><select id="rails"><option>2</option><option selected>3</option><option>4</option></select></div><div class="input-group"><label>Picket Width (in)</label><input id="picket" type="number" value="5.5"></div><div class="input-group"><label>Gap (in)</label><input id="gap" type="number" value="0.5"></div><div class="input-group"><label>Waste %</label><input id="waste" type="number" value="10"></div><div class="input-group"><label>Cost/ft ($)</label><input id="cost" type="number" value="35"></div></div><div class="results"><div class="card"><h3>Posts</h3><span id="posts">0</span></div><div class="card"><h3>Rails</h3><span id="railsOut">0</span></div><div class="card"><h3>Pickets</h3><span id="pickets">0</span></div><div class="card"><h3>Bags</h3><span id="bags">0</span></div><div class="card"><h3>Cost</h3><span id="price">$0</span></div></div><button id="copyBtn">Copy Results</button><svg id="diagram" viewBox="0 0 800 170"></svg></section><section class="content"><h2>About</h2><p>Estimate fence materials instantly.</p></section></main><script src="js/script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fence Material Calculator | Posts, Rails & Pickets Estimator</title>
+
+<meta name="description" content="Free Fence Material Calculator for US homeowners. Calculate fence posts, rails, pickets, concrete bags and material costs instantly.">
+
+<meta name="keywords" content="Fence Material Calculator, Fence Post Calculator, Fence Picket Calculator">
+
+<meta property="og:title" content="Fence Material Calculator">
+<meta property="og:description" content="Calculate fence posts, rails, pickets and concrete bags instantly.">
+
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Fence Material Calculator</h1>
+  <p>Calculate fence posts, rails, pickets, concrete bags and total material cost.</p>
+</header>
+
+<main class="container">
+
+<section class="calculator">
+
+<div class="grid">
+
+<div class="input-group">
+<label for="length">Fence Length (ft)</label>
+<input id="length" type="number" value="100" min="1">
+</div>
+
+<div class="input-group">
+<label for="height">Fence Height</label>
+<select id="height">
+<option value="4">4 ft</option>
+<option value="6" selected>6 ft</option>
+<option value="8">8 ft</option>
+</select>
+</div>
+
+<div class="input-group">
+<label for="spacing">Post Spacing (ft)</label>
+<input id="spacing" type="number" value="8" min="6" max="10">
+</div>
+
+<div class="input-group">
+<label for="rails">Rails</label>
+<select id="rails">
+<option value="2">2</option>
+<option value="3" selected>3</option>
+<option value="4">4</option>
+</select>
+</div>
+
+<div class="input-group">
+<label for="picket">Picket Width (in)</label>
+<input id="picket" type="number" value="5.5" step="0.5">
+</div>
+
+<div class="input-group">
+<label for="gap">Gap Between Pickets (in)</label>
+<input id="gap" type="number" value="0.5" step="0.25">
+</div>
+
+<div class="input-group">
+<label for="waste">Waste (%)</label>
+<input id="waste" type="number" value="10">
+</div>
+
+<div class="input-group">
+<label for="cost">Material Cost per Foot ($)</label>
+<input id="cost" type="number" value="35">
+</div>
+
+</div>
+
+<div class="results">
+
+<div class="card">
+<h3>Fence Posts</h3>
+<span id="posts">0</span>
+</div>
+
+<div class="card">
+<h3>Rails</h3>
+<span id="railsOut">0</span>
+</div>
+
+<div class="card">
+<h3>Pickets</h3>
+<span id="pickets">0</span>
+</div>
+
+<div class="card">
+<h3>Concrete Bags</h3>
+<span id="bags">0</span>
+</div>
+
+<div class="card">
+<h3>Total Cost</h3>
+<span id="price">$0</span>
+</div>
+
+</div>
+
+<div class="button-group">
+<button id="calculateBtn" class="primary-btn">Calculate</button>
+<button id="copyBtn" class="secondary-btn">Copy Results</button>
+</div>
+
+<svg id="diagram" viewBox="0 0 800 170"></svg>
+
+</section>
+
+<section class="content">
+
+<h2>About Fence Material Calculator</h2>
+
+<p>
+This free fence calculator helps homeowners estimate the number of fence posts,
+rails, pickets, concrete bags and total material costs for wood privacy fences.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<details open>
+<summary>How are fence posts calculated?</summary>
+<p>Posts = Ceiling(Fence Length ÷ Post Spacing) + 1.</p>
+</details>
+
+<details>
+<summary>How many concrete bags per post?</summary>
+<p>This calculator estimates two 80-lb concrete bags per post.</p>
+</details>
+
+<details>
+<summary>Does this include waste?</summary>
+<p>Yes. A waste percentage is added to the picket calculation.</p>
+</details>
+
+</section>
+
+</main>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
